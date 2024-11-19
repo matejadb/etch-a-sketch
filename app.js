@@ -1,11 +1,18 @@
 const container = document.querySelector(".grid-container");
 const buttonDiv = document.querySelector(".button-div");
-
 let popupButton = document.createElement("button");
+let gridLength;
+
 popupButton.classList.add("popupButton");
 popupButton.innerText = "New grid";
 
 buttonDiv.appendChild(popupButton);
+
+popupButton.addEventListener("click", () => {
+	gridLength = prompt("Test");
+
+	console.log(gridLength);
+});
 
 for (let i = 1; i < 273; i++) {
 	let square = document.createElement("div");
@@ -23,6 +30,6 @@ for (let i = 1; i < 273; i++) {
 
 /*
 TODO: Add button and styles - DONE
-TODO: Add button interaction
+TODO: Add button interaction - DONE
 TODO: Figure out the logic
 */
