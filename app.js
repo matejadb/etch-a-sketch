@@ -8,25 +8,25 @@ popupButton.innerText = "New grid";
 
 buttonDiv.appendChild(popupButton);
 
-popupButton.addEventListener("click", () => {
-	gridLength = prompt("Test");
+gridLength = popupButton.addEventListener("click", () => {
+	do {
+		gridLength = parseInt(prompt("Enter grid size (maximum 100x100)"));
+	} while (gridLength > 100);
 
-	console.log(gridLength);
+	for (let i = 1; i < gridLength * gridLength; i++) {
+		let square = document.createElement("div");
+		square.classList.add("box");
+
+		square.onmouseover = () => {
+			let r = Math.floor(Math.random() * 256) + 1;
+			let g = Math.floor(Math.random() * 256) + 1;
+			let b = Math.floor(Math.random() * 256) + 1;
+			square.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+		};
+
+		container.appendChild(square);
+	}
 });
-
-for (let i = 1; i < 273; i++) {
-	let square = document.createElement("div");
-	square.classList.add("box");
-
-	square.onmouseover = () => {
-		let r = Math.floor(Math.random() * 256) + 1;
-		let g = Math.floor(Math.random() * 256) + 1;
-		let b = Math.floor(Math.random() * 256) + 1;
-		square.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
-	};
-
-	container.appendChild(square);
-}
 
 /*
 TODO: Add button and styles - DONE
