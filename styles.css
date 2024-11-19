@@ -4,14 +4,14 @@
 	box-sizing: border-box;
 }
 
-.container {
+.grid-container {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
 }
 
-.container div:nth-child(17n + 1) {
+.grid-container div:nth-child(17n + 1) {
 	width: 100%;
 	border: 0;
 	height: 0;
