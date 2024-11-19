@@ -1,16 +1,11 @@
 const container = document.querySelector(".grid-container");
-
-let buttonDiv = document.createElement("div");
-buttonDiv.classList.add("buttonDiv");
+const buttonDiv = document.querySelector(".button-div");
 
 let popupButton = document.createElement("button");
 popupButton.classList.add("popupButton");
 popupButton.innerText = "New grid";
 
 buttonDiv.appendChild(popupButton);
-container.appendChild(buttonDiv);
-
-let gridDiv = document.createElement("div");
 
 for (let i = 1; i < 273; i++) {
 	let square = document.createElement("div");

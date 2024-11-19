@@ -22,3 +22,25 @@
 	height: 50px;
 	width: 50px;
 }
+
+.button-div {
+	height: 5em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.popupButton {
+	padding: 1em;
+	width: 10em;
+	color: white;
+	background-color: #7393b3;
+	border: none;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+.popupButton:hover {
+	background-color: #b2beb5;
+	cursor: pointer;
+}
