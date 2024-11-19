@@ -1,6 +1,7 @@
 const container = document.querySelector(".grid-container");
 const buttonDiv = document.querySelector(".button-div");
 let popupButton = document.createElement("button");
+let row = document.createElement("div");
 let gridLength;
 
 popupButton.classList.add("popupButton");
@@ -8,28 +9,39 @@ popupButton.innerText = "New grid";
 
 buttonDiv.appendChild(popupButton);
 
-gridLength = popupButton.addEventListener("click", () => {
+popupButton.addEventListener("click", (e) => {
 	do {
 		gridLength = parseInt(prompt("Enter grid size (maximum 100x100)"));
+		container.innerHTML = "";
 	} while (gridLength > 100);
+	for (let i = 0; i < gridLength; i++) {
+		row = container.appendChild(document.createElement("div"));
+		for (let j = 0; j < gridLength; j++) {
+			const square = document.createElement("div");
+			square.classList.add("box");
 
-	for (let i = 1; i < gridLength * gridLength; i++) {
-		let square = document.createElement("div");
-		square.classList.add("box");
+			square.onmouseover = () => {
+				let r = Math.floor(Math.random() * 256) + 1;
+				let g = Math.floor(Math.random() * 256) + 1;
+				let b = Math.floor(Math.random() * 256) + 1;
+				square.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+			};
 
-		square.onmouseover = () => {
-			let r = Math.floor(Math.random() * 256) + 1;
-			let g = Math.floor(Math.random() * 256) + 1;
-			let b = Math.floor(Math.random() * 256) + 1;
-			square.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
-		};
-
-		container.appendChild(square);
+			row.appendChild(square);
+		}
 	}
 });
-
 /*
-TODO: Add button and styles - DONE
-TODO: Add button interaction - DONE
-TODO: Figure out the logic
+function createBoxes(numBox) {
+	for (let i = 0; i < numBox; i++) {
+		const row = container.appendChild(document.createElement("div"));
+		for (let j = 0; j < numBox; j++) {
+			const square = document.createElement("div");
+			square.className = "box";
+			row.appendChild(square);
+		}
+	}
+}
+
+createBoxes(16);
 */
