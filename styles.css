@@ -5,20 +5,15 @@
 }
 
 .grid-container {
-	width: 960px;
-	height: 960px;
+	display: flex;
+	flex-wrap: wrap;
+	width: 980px;
+	height: 980px;
+	margin: auto;
 }
 
-.grid-container > div {
-	height: 25px;
-}
-
-.box {
-	border: 1px solid red;
-	box-sizing: border-box;
-	display: inline-block;
-	width: 25px;
-	height: 25px;
+.grid-item {
+	border: 1px solid black;
 }
 
 .button-div {

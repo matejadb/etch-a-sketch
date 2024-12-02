@@ -1,8 +1,7 @@
 const container = document.querySelector(".grid-container");
 const buttonDiv = document.querySelector(".button-div");
 let popupButton = document.createElement("button");
-let row = document.createElement("div");
-let gridLength;
+let gridSize;
 
 popupButton.classList.add("popupButton");
 popupButton.innerText = "New grid";
@@ -11,10 +10,32 @@ buttonDiv.appendChild(popupButton);
 
 popupButton.addEventListener("click", (e) => {
 	do {
-		gridLength = parseInt(prompt("Enter grid size (maximum 100x100)"));
+		gridSize = parseInt(prompt("Enter grid size (maximum 100x100)"));
 		container.innerHTML = "";
-	} while (gridLength > 100);
-	for (let i = 0; i < gridLength; i++) {
+	} while (gridSize > 100);
+	container.style.setProperty("--grid-size", gridSize);
+
+	const gridItemSize = 980 / gridSize;
+
+	for (let i = 0; i < gridSize * gridSize; i++) {
+		const item = document.createElement("div");
+		item.classList.add("grid-item");
+		item.style.width = `${gridItemSize}px`;
+		item.style.height = `${gridItemSize}px`;
+
+		item.onmouseover = () => {
+			let r = Math.floor(Math.random() * 256) + 1;
+			let g = Math.floor(Math.random() * 256) + 1;
+			let b = Math.floor(Math.random() * 256) + 1;
+			item.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+		};
+
+		container.appendChild(item);
+	}
+});
+// TODO - Fix grid
+/*
+for (let i = 0; i < gridLength; i++) {
 		row = container.appendChild(document.createElement("div"));
 		for (let j = 0; j < gridLength; j++) {
 			const square = document.createElement("div");
@@ -30,6 +51,4 @@ popupButton.addEventListener("click", (e) => {
 			row.appendChild(square);
 		}
 	}
-});
-
-// TODO - Fix grid
+*/
